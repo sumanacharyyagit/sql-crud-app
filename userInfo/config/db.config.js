@@ -1,31 +1,19 @@
-// get the client
 const mysql = require("mysql2");
 
-// create the connection to database
 const connection = mysql.createConnection({
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "12345678",
-  DB: "sequelize_user_db",
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
+  host: "localhost",
+  database: "user-data",
+  user: "root",
+  password: "root",
 });
 
-// module.exports = {
-//   HOST: "localhost",
-//   USER: "root",
-//   PASSWORD: "12345678",
-//   DB: "testdb",
-//   dialect: "mysql",
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     acquire: 30000,
-//     idle: 10000,
-//   },
-// };
+connection.connect(function (error) {
+  if (error) {
+    console.log(error);
+    throw error;
+  } else {
+    console.log("MySQL Database is connected Successfully");
+  }
+});
+
+module.exports = connection;

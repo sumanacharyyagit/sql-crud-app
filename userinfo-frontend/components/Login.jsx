@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { signinUserData } from "../src/http-calls";
 
 const initialLogin = {
   email: "",
@@ -8,6 +9,12 @@ const initialLogin = {
 
 const Login = () => {
   const [loginFields, setLoginFields] = useState(() => initialLogin);
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    console.log(loginFields);
+    signinUserData(loginFields);
+  };
 
   return (
     <div>
@@ -63,6 +70,7 @@ const Login = () => {
                 className="w-100 btn btn-lg btn-primary"
                 type="submit"
                 fdprocessedid="u99c95"
+                onClick={loginHandler}
               >
                 Login
               </button>

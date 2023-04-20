@@ -9,8 +9,8 @@ export const isAuthenticated = () => {
   if (typeof window == "undefined") {
     return false;
   }
-  if (localStorage.getItem("unlock-ui")) {
-    return JSON.parse(localStorage.getItem("unlock-ui"));
+  if (localStorage.getItem("tokenval")) {
+    return JSON.parse(localStorage.getItem("tokenval"));
   } else {
     return false;
   }

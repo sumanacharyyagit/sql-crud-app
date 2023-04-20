@@ -5,7 +5,7 @@ import { isAuthenticated } from "./index.js";
 const PrivateRoute = () => {
   const isAuthent = isAuthenticated();
 
-  return isAuthent ? <Outlet /> : <Navigate to="/" />;
+  return isAuthent ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;
